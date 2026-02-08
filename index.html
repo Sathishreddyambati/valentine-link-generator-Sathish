@@ -77,18 +77,47 @@ button{
 </div>
 
 <script>
-function generate(){
-  const f=from.value.trim(), t=to.value.trim();
-  if(!f||!t){alert("Enter both names");return;}
-  const base = location.origin + "/valentine-link-generator-Sathish/valentine.html";
-  const url=base+"?from="+encodeURIComponent(f)+"&name="+encodeURIComponent(t);
-  link.value=url;
-  msg.value=`Hi ${t},\n\nI made something cute for you 😊.\n\nWill you be my Valentine? 💖\nClick the link below 👇\n${url}`;
-  result.style.display="block";
+function generate() {
+  const f = document.getElementById("from").value.trim();
+  const t = document.getElementById("to").value.trim();
+
+  if (!f || !t) {
+    alert("Enter both names");
+    return;
+  }
+
+  // 👇 HARD-CODE the valentine page (this is the key fix)
+  const url =
+    location.origin +
+    "/valentine-link-generator-Sathish/valentine.html" +
+    "?from=" + encodeURIComponent(f) +
+    "&name=" + encodeURIComponent(t);
+
+  document.getElementById("link").value = url;
+
+  document.getElementById("msg").value =
+`Hi ${t},
+
+I made something cute for you 😊.
+
+Will you be my Valentine? 💖
+Click the link below 👇
+${url}`;
+
+  document.getElementById("result").style.display = "block";
 }
-function copyLink(){navigator.clipboard.writeText(link.value);}
-function copyMsg(){navigator.clipboard.writeText(msg.value);}
-function openLink(){window.open(link.value,"_blank");}
+
+function copyLink() {
+  navigator.clipboard.writeText(document.getElementById("link").value);
+}
+
+function copyMsg() {
+  navigator.clipboard.writeText(document.getElementById("msg").value);
+}
+
+function openLink() {
+  window.open(document.getElementById("link").value, "_blank");
+}
 </script>
 
 </body>

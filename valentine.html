@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>❤️ Valentine ❤️</title>
+</head>
+<body style="text-align:center; font-family:Arial; background:#ffefef;">
+  <h2 id="greet"></h2>
+  <p id="msg"></p>
+
+<script>
+const p = new URLSearchParams(location.search);
+document.getElementById("greet").innerText = `Hey ${p.get("to")} 💕`;
+document.getElementById("msg").innerText = `${p.get("from")} wants to be your Valentine 💖`;
+</script>
+</body>
+</html>

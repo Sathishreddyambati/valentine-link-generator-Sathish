@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Valentine Link Generator</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>💖 Valentine Link Generator</h1>
+    <input id="yourName" placeholder="Your Name" />
+    <input id="valName" placeholder="Your Valentine’s Name" />
+    <button onclick="generateLink()">Generate</button>
+
+    <div id="result" style="display:none;">
+      <p><strong>Personalized URL:</strong></p>
+      <input id="linkOut" readonly />
+      <button onclick="copyLink()">Copy Link</button>
+
+      <p><strong>Message:</strong></p>
+      <textarea id="msgOut" readonly></textarea>
+      <button onclick="copyMsg()">Copy Message</button>
+
+      <br /><button onclick="openLink()">Open Link</button>
+    </div>
+  </div>
+
+<script src="generate.js"></script>
+</body>
+</html>

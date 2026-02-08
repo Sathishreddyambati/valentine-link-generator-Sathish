@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(180deg,#ffe6ee,#fff);
+  margin:0;
+  overflow:hidden;
+}
+.card{
+  max-width:420px;
+  margin:60px auto;
+  background:#fff;
+  border-radius:25px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(255,105,135,.3);
+}
+h1{color:#7a1c3d;}
+.sub{color:#a04b63;margin-bottom:20px;}
+button{
+  border:none;
+  border-radius:30px;
+  padding:14px 30px;
+  font-size:18px;
+  margin:10px;
+  cursor:pointer;
+}
+.yes{background:#ff5c8a;color:#fff;}
+.no{background:#fff;color:#7a1c3d;border:1px solid #f3b5c8;}
+.msg{
+  margin-top:20px;
+  padding:15px;
+  background:#fff5f8;
+  border-radius:15px;
+  color:#7a1c3d;
+  display:none;
+}
+</style>
+</head>
+<body>
+
+<div class="card" id="main">
+<h1 id="title"></h1>
+<div class="sub">Choose wisely. (The "No" button is... shy.)</div>
+
+<button class="yes" onclick="yes()">YES</button>
+<button class="no" id="noBtn" onclick="nope()">NO</button>
+
+<div class="msg" id="msg"></div>
+</div>
+
+<div class="card" id="final" style="display:none;">
+<h1>💖 YAY!!! 💖</h1>
+<p style="font-size:20px;">Best decision ever 😘</p>
+<p id="love"></p>
+</div>
+
+<script>
+const p=new URLSearchParams(location.search);
+const name=p.get("name")||"You";
+const from=p.get("from")||"Someone";
+title.innerText=`${name}, will you be my Valentine? 💕`;
+love.innerText=`I love you ❤️\n~ ${from}`;
+
+const messages=[
+"This could be a mistake!",
+"You might regret this!",
+"Last chance 😬",
+"Don't do this to me 💔",
+"Think again 🥺",
+"My heart can't take this 💗",
+"Are you really sure?",
+"I'll be sad forever 😭",
+"Okay… one more chance 😶",
+"Pleaseeeee 🥹"
+];
+let i=0;
+
+function nope(){
+  msg.style.display="block";
+  msg.innerText=messages[i++%messages.length];
+  noBtn.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`;
+}
+
+function yes(){
+  main.style.display="none";
+  final.style.display="block";
+}
+</script>
+
+</body>
+</html>

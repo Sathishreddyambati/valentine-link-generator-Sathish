@@ -80,7 +80,7 @@ button{
 function generate(){
   const f=from.value.trim(), t=to.value.trim();
   if(!f||!t){alert("Enter both names");return;}
-  const base=location.origin+location.pathname.replace("genrateValentineUrl.html","valentine.html");
+  const base=location.origin+location.pathname.replace("index.html","valentine.html");
   const url=base+"?from="+encodeURIComponent(f)+"&name="+encodeURIComponent(t);
   link.value=url;
   msg.value=`Hi ${t},\n\nI made something cute for you 😊.\n\nWill you be my Valentine? 💖\nClick the link below 👇\n${url}`;
